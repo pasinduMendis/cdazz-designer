@@ -225,7 +225,7 @@
               }
             )
             if (error) {
-              //console.log("Failed: " + error)
+              console.log("Failed: " + error)
               var errorElement = document.getElementById('card-errors')
               errorElement.textContent =
                 'Oops! Something went wrong while submitting the form.'
@@ -244,7 +244,7 @@
             errorElement.textContent =
               'Oops! Something went wrong while submitting the form.'
             errorElement.style.display = 'block'
-            //console.log("Failed: " + err)
+            console.log("Failed catch: " + err)
           })
       })
     })

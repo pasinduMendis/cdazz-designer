@@ -194,10 +194,12 @@
       var form = document.getElementById('payment-form')
       form.addEventListener('submit', async function (event) {
         event.preventDefault()
+        console.log("clicked")
         const charge = await stripe.createPaymentMethod({
           type: 'card',
           card: cardElement,
         })
+        console.log("charge :",charge)
         if (charge.error) {
           console.log(charge.error)
           var errorElement = document.getElementById('card-errors')
@@ -208,6 +210,7 @@
         await axios
           .post('/charge', {})
           .then(async (response) => {
+            console.log("res :",response.data)
             const { error } = await stripe.confirmCardPayment(
               response.data.clientSecret,
               {

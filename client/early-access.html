@@ -217,7 +217,7 @@
         await axios
           .post('/charge', {})
           .then(async (response) => {
-            console.log("res :",response.data)
+            //console.log("res :",response.data)
             const { error } = await stripe.confirmCardPayment(
               response.data.clientSecret,
               {
@@ -232,8 +232,8 @@
               errorElement.style.display = 'block'
               return
             } else {
-              var errorElement = document.getElementById('card-success')
-              window.location.replace('/thank-you')
+              console.log("success")
+              //window.location.replace('/thank-you')
             }
           })
           .catch((err) => {
